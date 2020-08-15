@@ -56,7 +56,14 @@ const Cards = (props) => {
                                 </TouchableOpacity>
                             )
                         })}
-                        <TouchableOpacity onPress={props.onSubmit} style={styles.SubmitBtn}>
+                        <TouchableOpacity onPress={()=>{
+                            if(selected){
+                                props.onSubmit()
+                            }
+                            else{
+                                alert("Please select 1 option.")
+                            }
+                        }} style={styles.SubmitBtn}>
                             <Text style={{color:"#fff"}}>Submit</Text>
                         </TouchableOpacity>
                     </View>
