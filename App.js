@@ -43,7 +43,9 @@ const App = () => {
       question={"Dummy text is text that is used in the publishing industry or by web designers to"}
       onSubmit={()=>{
         setScore(score + 10)
-        setCurrentScreen(currentScreen + 1)
+        if((currentScreen + 1) !== ScreenArray.length){
+          setCurrentScreen(currentScreen + 1)
+        }
       }}
       score={score}
       current={currentScreen}
