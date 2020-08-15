@@ -10,12 +10,18 @@ import {
   Button,
   TouchableOpacity
 } from 'react-native';
-import CardScreen from './component/card'
+import CardScreen from './component/card';
 import ScreenArray from './screensArray';
+import Result from './component/result';
+
 const App = () => {
   const [time, setTime] = useState(0)
   const [currentScreen, setCurrentScreen] = useState(0)
   const [score, setScore] = useState(0)
+  const [showResult, setShowResult] = useState(false)
+  const [selected, setSelected] = useState(null)
+  const [timerStop, setTimerStop] = useState(false)
+
 
 
     const timer = (t) =>{
@@ -31,26 +37,50 @@ const App = () => {
         timer(10)
     },[])
 
+    // useEffect(()=>{
+    //   if(time == 0){
+    //     setCurrentScreen(currentScreen + 1)
+    //   }
+    // },[time])
+
     useEffect(()=>{
         if(currentScreen !== 0){
           timer(10)
         }
     },[currentScreen])
-  return (
-    <CardScreen
-      selected={(e)=>{console.log("selected", e)}}
-      options={["Smoke", "Control", "Smoke", "Smoke"]}
-      question={"Dummy text is text that is used in the publishing industry or by web designers to"}
-      onSubmit={()=>{
-        setScore(score + 10)
-        if((currentScreen + 1) !== ScreenArray.length){
-          setCurrentScreen(currentScreen + 1)
-        }
-      }}
-      score={score}
-      current={currentScreen}
-      totalScreens={ScreenArray.length}
-      timer={time}/>
-  );
+    
+  if(showResult){
+    return(
+      <Result reset={()=>{
+        setTime(10)
+        setCurrentScreen(0)
+        setScore(0)
+        setShowResult(false)
+        timer(10)
+      }} score={score} totalQuestions={ScreenArray.length}/>
+    )
+  }
+  else{
+    return (
+      <CardScreen
+        selected={(e)=>setSelected(e)}
+        options={ScreenArray[currentScreen].options}
+        question={ScreenArray[currentScreen].question}
+        onSubmit={()=>{
+          if((selected+1) == ScreenArray[currentScreen].answer){
+            setScore(score + 10)
+          }
+          if((currentScreen + 1) !== ScreenArray.length){
+            setCurrentScreen(currentScreen + 1)
+          }else{
+            setShowResult(true)
+          }
+        }}
+        score={score}
+        current={currentScreen}
+        totalScreens={ScreenArray.length}
+        timer={time}/>
+    )
+  }
 };
 export default App;

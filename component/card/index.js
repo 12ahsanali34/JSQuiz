@@ -11,9 +11,11 @@ import {
   Dimensions,
   ImageBackground
 } from 'react-native';
-const Cards = (props) => {
+const Screen = (props) => {
     const  BGimage = require('../../assets/background.jpg');
     const [selected, setSelected] = useState(null)
+    const [isDisabled, setIsDisabled] = useState(false)
+
     useEffect(()=>{
         setSelected(null)
     },[props.current])
@@ -21,6 +23,17 @@ const Cards = (props) => {
     useEffect(()=>{
         props.selected(selected) 
     },[selected])
+
+    useEffect(()=>{
+        if(props.timer == 0){
+          setIsDisabled(true)
+          setSelected(props.current)
+        }
+        else{
+          setIsDisabled(false)
+          setSelected(null)
+        }
+    },[props.timer])
     return (
         <ScrollView>
             <ImageBackground 
@@ -48,23 +61,24 @@ const Cards = (props) => {
                         {props.options.map((res, i)=>{
                             let iselected = selected == i
                             return(
-                                <TouchableOpacity 
+                                <TouchableOpacity
+                                    disabled={isDisabled} 
                                     onPress={()=>{setSelected(i)}}
                                     key={i}
-                                    style={[styles.Btn, {backgroundColor: iselected ? "#7100E4" : "#fff"}]}>
-                                    <Text style={{color: iselected ? "#fff" : "#000"}}>{res}</Text>
+                                    style={[styles.Btn, {backgroundColor: iselected ? "#7100E4" : "#fff", paddingHorizontal:5}]}>
+                                    <Text style={{color: iselected ? "#fff" : "#000", textAlign:'center'}}>{res}</Text>
                                 </TouchableOpacity>
                             )
                         })}
                         <TouchableOpacity onPress={()=>{
-                            if(selected){
+                            if(selected !== null){
                                 props.onSubmit()
                             }
                             else{
                                 alert("Please select 1 option.")
                             }
                         }} style={styles.SubmitBtn}>
-                            <Text style={{color:"#fff"}}>Submit</Text>
+                            <Text style={{color:"#fff"}}>{props.timer == 0 ? "Next" : "Submit"}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -113,6 +127,7 @@ const styles = StyleSheet.create({
   QueText:{
     textAlign:"center",
     marginTop:5,
+    paddingHorizontal:10
   },
 
   BtnSection:{
@@ -149,9 +164,8 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'orange',
-
   },
 
 });
 
-export default Cards;
+export default Screen;
