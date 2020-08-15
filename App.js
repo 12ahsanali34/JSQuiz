@@ -1,12 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, {useState, useEffect} from 'react';
 
-import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,101 +7,48 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
+  TouchableOpacity
 } from 'react-native';
+import CardScreen from './component/card'
+import ScreenArray from './screensArray';
+const App = () => {
+  const [time, setTime] = useState(0)
+  const [currentScreen, setCurrentScreen] = useState(0)
+  const [score, setScore] = useState(0)
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+    const timer = (t) =>{
+        if(t > 0){
+            setTimeout(()=>{
+                --t;
+                setTime(t)
+                timer(t)
+            },1000)
+        }
+    }
+    useEffect(()=>{
+        timer(10)
+    },[])
+
+    useEffect(()=>{
+        if(currentScreen !== 0){
+          timer(10)
+        }
+    },[currentScreen])
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <CardScreen
+      selected={(e)=>{console.log("selected", e)}}
+      options={["Smoke", "Control", "Smoke", "Smoke"]}
+      question={"Dummy text is text that is used in the publishing industry or by web designers to"}
+      onSubmit={()=>{
+        setScore(score + 10)
+        setCurrentScreen(currentScreen + 1)
+      }}
+      score={score}
+      current={currentScreen}
+      totalScreens={ScreenArray.length}
+      timer={time}/>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
-
 export default App;
