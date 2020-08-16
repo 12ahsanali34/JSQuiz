@@ -14,7 +14,6 @@ import {
 const Screen = (props) => {
     const  BGimage = require('../../assets/background.jpg');
     const [selected, setSelected] = useState(null)
-    const [isDisabled, setIsDisabled] = useState(false)
 
     useEffect(()=>{
         setSelected(null)
@@ -24,16 +23,17 @@ const Screen = (props) => {
         props.selected(selected) 
     },[selected])
 
-    useEffect(()=>{
-        if(props.timer == 0){
-          setIsDisabled(true)
-          setSelected(props.current)
-        }
-        else{
-          setIsDisabled(false)
-          setSelected(null)
-        }
-    },[props.timer])
+    // useEffect(()=>{
+    //     if(props.timer == 0){
+    //       setIsDisabled(true)
+    //       // setSelected(null)
+    //       // setSelected(props.current)
+    //     }
+    //     else{
+    //       setIsDisabled(false)
+    //       // setSelected(null)
+    //     }
+    // },[props.timer])
     return (
         <ScrollView>
             <ImageBackground 
@@ -62,7 +62,7 @@ const Screen = (props) => {
                             let iselected = selected == i
                             return(
                                 <TouchableOpacity
-                                    disabled={isDisabled} 
+                                    disabled={props.isDisabledOptions} 
                                     onPress={()=>{setSelected(i)}}
                                     key={i}
                                     style={[styles.Btn, {backgroundColor: iselected ? "#7100E4" : "#fff", paddingHorizontal:5}]}>
@@ -75,7 +75,9 @@ const Screen = (props) => {
                                 props.onSubmit()
                             }
                             else{
-                                alert("Please select 1 option.")
+                                if(!props.isDisabledOptions){
+                                  alert("Please select 1 option.")
+                                }
                             }
                         }} style={styles.SubmitBtn}>
                             <Text style={{color:"#fff"}}>{props.timer == 0 ? "Next" : "Submit"}</Text>
