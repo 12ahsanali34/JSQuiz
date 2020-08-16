@@ -20,7 +20,7 @@ const App = () => {
   const [score, setScore] = useState(0)
   const [showResult, setShowResult] = useState(false)
   const [selected, setSelected] = useState(null)
-  const [timerStop, setTimerStop] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
 
 
 
@@ -37,11 +37,17 @@ const App = () => {
         timer(10)
     },[])
 
-    // useEffect(()=>{
-    //   if(time == 0){
-    //     setCurrentScreen(currentScreen + 1)
-    //   }
-    // },[time])
+    useEffect(()=>{
+      if(time == 0){
+        setIsDisabled(true)
+        // setSelected(null)
+        // setSelected(props.current)
+      }
+      else{
+        setIsDisabled(false)
+        // setSelected(null)
+      }
+  },[time])
 
     useEffect(()=>{
         if(currentScreen !== 0){
@@ -63,6 +69,7 @@ const App = () => {
   else{
     return (
       <CardScreen
+        isDisabledOptions={isDisabled}
         selected={(e)=>setSelected(e)}
         options={ScreenArray[currentScreen].options}
         question={ScreenArray[currentScreen].question}
