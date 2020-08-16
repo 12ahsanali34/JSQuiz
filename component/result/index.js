@@ -12,13 +12,9 @@ import {
   ImageBackground
 } from 'react-native';
 const Screen = (props) => {
-    const  BGimage = require('../../assets/background.jpg');
-
     return (
         <ScrollView>
-            <ImageBackground 
-                resizeMode='cover' 
-                source={BGimage}
+            <View 
                 style={styles.body}>
                 <View style={styles.Card}>
                     <Text style={styles.Heading1}> Congratulation</Text>
@@ -28,7 +24,7 @@ const Screen = (props) => {
                         <Text style={{color:"#fff"}}>Play Again</Text>
                     </TouchableOpacity>
                 </View>
-            </ImageBackground>
+            </View>
         </ScrollView>
     );
 };
@@ -36,7 +32,7 @@ let deviceWidth = Dimensions.get('window').width
 let deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
   body: {
-    // backgroundColor: "#000",
+    backgroundColor: "#07361E",
     width:deviceWidth,
     height:deviceHeight,
     justifyContent:"center",
@@ -45,12 +41,20 @@ const styles = StyleSheet.create({
   },
   Card:{
     width:"100%",
-    backgroundColor:"#fff",
+    backgroundColor:"#0A522D",
     borderRadius:5,
     overflow:"hidden",
     alignItems:"center",
     justifyContent:"center",
-    padding:20
+    padding:20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 
   ResultBox:{
@@ -67,13 +71,13 @@ const styles = StyleSheet.create({
 
   MyResult:{
       marginBottom:10,
-      color:"#000",
+      color:"#fff",
       fontSize:25,
   },
 
   ViewResult:{
       fontSize:15,
-      color:"gray",
+      color:"#fff",
   },
   playAgainBTN:{
     marginTop:20,
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
     marginVertical:10,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'orange',
+    backgroundColor:'#64952D',
   },
 
 

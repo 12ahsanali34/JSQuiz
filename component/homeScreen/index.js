@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  Image,
   Text,
   StatusBar,
   Button,
@@ -12,20 +13,21 @@ import {
   Dimensions
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const MainMenu = () => {
 
   return(
     <ScrollView style={{backgroundColor:'#07361E'}}>
         <View style={style.MainBox}>
-            <View style={style.header}>
+            {/* <View style={style.header}>
               <Text style={style.HeaderText}>
                 Pakistan Quiz
               </Text>
               <View style={style.HeaderBox}>
                 <Text>Dummy</Text>
               </View>
-            </View>
+            </View> */}
             <View style={style.titleCard}>
               <Text style={style.TitalText}>
                 Jacpot
@@ -37,6 +39,7 @@ const MainMenu = () => {
                 <Text style={style.PlayBtnText}>
                   Play Now
                 </Text>
+                <Icon name="play" size={20} color="#fff" />
               </TouchableOpacity>
             </View>
               <Text style={style.quizeheading}>
@@ -52,6 +55,7 @@ const MainMenu = () => {
                      <Text style={style.PlayBtnText}>
                         Play Now
                      </Text>
+                      <Icon name="arrow-right" size={15} color="#fff" />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -64,6 +68,7 @@ const MainMenu = () => {
                       <Text style={style.PlayBtnText}>
                          Play Now
                      </Text>
+                     <Icon name="arrow-right" size={15} color="#fff" />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -78,6 +83,7 @@ const MainMenu = () => {
                       <Text style={style.PlayBtnText}>
                          Play Now
                       </Text>
+                      <Icon name="arrow-right" size={15} color="#fff" />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -90,6 +96,7 @@ const MainMenu = () => {
                       <Text style={style.PlayBtnText}>
                         Play Now
                       </Text>
+                      <Icon name="arrow-right" size={15} color="#fff" />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -146,15 +153,17 @@ const style = StyleSheet.create({
     height:50,
     width:140,
     borderRadius:30,
-    backgroundColor:"purple",
+    backgroundColor:"#64952D",
     justifyContent:"center",
     alignItems:"center",
+    flexDirection:'row'
   },
 
   PlayBtnText:{
     fontSize:16,
     color:"#fff",
-    fontFamily:"serif"
+    fontFamily:"serif",
+    marginRight:10
 
   },
   HeaderText:{
@@ -206,13 +215,14 @@ const style = StyleSheet.create({
   },
   InnerBoxBtn:{
     height:40,
-    width:100,
     borderRadius:30,
     marginBottom:10,
     justifyContent:"center",
     alignItems:"center",
-    backgroundColor:"purple",
+    backgroundColor:"#64952D",
     marginRight:10,
+    flexDirection:'row',
+    padding:8
   },
   InnerTxt:{
     fontSize:20,

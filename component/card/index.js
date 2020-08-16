@@ -36,16 +36,16 @@ const Screen = (props) => {
     // },[props.timer])
     return (
         <ScrollView>
-            <ImageBackground 
-                resizeMode='cover' 
-                source={BGimage}
+            <View 
+                // resizeMode='cover' 
+                // source={BGimage}
                 style={styles.body}>
                 <View style={styles.Card}>
                     <View style={styles.CardHeader}>
                         <View style={styles.headerBtn}>
-                            <Text>{props.current + 1}/{props.totalScreens}</Text>
+                            <Text style={{color:'#fff'}}>{props.current + 1}/{props.totalScreens}</Text>
                         </View>
-                        <View style={[styles.headerBtn, {backgroundColor:'orange'}]}>
+                        <View style={[styles.headerBtn, {backgroundColor:'#3D3D3D'}]}>
                             <Text style={{color:'#fff'}}>{props.score}</Text>
                         </View>
                     </View>
@@ -65,8 +65,8 @@ const Screen = (props) => {
                                     disabled={props.isDisabledOptions} 
                                     onPress={()=>{setSelected(i)}}
                                     key={i}
-                                    style={[styles.Btn, {backgroundColor: iselected ? "#7100E4" : "#fff", paddingHorizontal:5}]}>
-                                    <Text style={{color: iselected ? "#fff" : "#000", textAlign:'center'}}>{res}</Text>
+                                    style={[styles.Btn, {backgroundColor: iselected ? "#7100E4" : "#64952D", paddingHorizontal:5}]}>
+                                    <Text style={{color: iselected ? "#fff" : "#fff", textAlign:'center'}}>{res}</Text>
                                 </TouchableOpacity>
                             )
                         })}
@@ -84,7 +84,7 @@ const Screen = (props) => {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </ImageBackground>
+            </View>
         </ScrollView>
     );
 };
@@ -92,7 +92,7 @@ let deviceWidth = Dimensions.get('window').width
 let deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
   body: {
-    // backgroundColor: "#000",
+    backgroundColor: "#07361E",
     width:deviceWidth,
     height:deviceHeight,
     justifyContent:"center",
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   Card:{
     width:"100%",
-    backgroundColor:"#fff",
+    backgroundColor:"#0A522D",
     borderRadius:5,
     overflow:"hidden",
   },
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     height:60,
     width:60,
     borderRadius:60,
-    backgroundColor:'orange',
+    backgroundColor:'#3D3D3D',
     justifyContent:'center',
     alignItems:'center',
   },
@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
   QueText:{
     textAlign:"center",
     marginTop:5,
+    color:"#fff",
     paddingHorizontal:10
   },
 
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
     marginVertical:10,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'orange',
+    backgroundColor:'#3D3D3D',
   },
 
 });
