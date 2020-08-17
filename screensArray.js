@@ -319,106 +319,215 @@ export default {
 
     wordpress:[
         {
-            question:"",
+            question:"What is the name of the first page you encounter after logging into your web page?",
             options:[
-                "",
-                "",
-                "",
-                "",
+                "Dashboard",
+                "Security question page",
+                "WP upgrade option",
+                "WPAdmin",
+            ],
+            answer:1
+        },
+        {
+            question:"What ways to use WordPress?",
+            options:[
+                "Arcade",
+                "Blog",
+                "Content Management",
+                "All of the above",
             ],
             answer:4
         },
         {
-            question:"",
+            question:"What case we cannot recommend WordPress to our client?",
             options:[
-                "",
-                "",
-                "",
-                "",
+                "If client is working on non-CMS base projec",
+                "If site wants complex or innovative e-commerce",
+                "In case of enterprise intranet solution",
+                "All of the above",
             ],
             answer:4
         },
         {
-            question:"",
+            question:" Which relational database does WordPress use?",
             options:[
-                "",
-                "",
-                "",
-                "",
+                "MySQL",
+                "Oracle",
+                "PostgresSQL",
+                "MS SQLServer",
+            ],
+            answer:1
+        },
+        {
+            question:"How can you get involved with WordPress?",
+            options:[
+                "Attend Word Camp",
+                "Edit the Codex (documentation)",
+                "Help in the Forums",
+                "All of these",
             ],
             answer:4
         },
         {
-            question:"",
+            question:"What are the rules that you have to follow for WordPress plugin development?",
             options:[
-                "",
-                "",
-                "",
-                "",
+                "Create a unique name",
+                "Create the plugin’s folder",
+                "Create a sub-folder for PHP files, translations, and assets",
+                "All of these",
             ],
             answer:4
         },
         {
-            question:"",
+            question:"What are the steps you can take if your WordPress file is hacked?",
             options:[
-                "",
-                "",
-                "",
-                "",
+                "Install security plugins like WP security",
+                "Re-install the latest version of WordPress",
+                "Change password and user-ids for all your users",
+                "All of the above",
             ],
             answer:4
         },
         {
-            question:"",
+            question:"What is a WordPress taxonomy?",
             options:[
-                "",
-                "",
-                "",
-                "",
+                "All of the above",
+                "Tag",
+                "Link Category",
+                "Post Formats",
+            ],
+            answer:1
+        },
+        {
+            question:"In WordPress, what is the user role with the highest privilege level?",
+            options:[
+                "Administrator",
+                "Author",
+                "Editor",
+                "Contributor",
             ],
             answer:4
         },
         {
-            question:"",
+            question:" What are rules to follow in WordPress plugin development?",
             options:[
-                "",
-                "",
-                "",
-                "",
+                "Find a unique name",
+                "All of the above",
+                "Setup a prefix (related to your brand)",
+                "Create the plugin’s folder",
+                
             ],
-            answer:4
-        },
-        {
-            question:"",
-            options:[
-                "",
-                "",
-                "",
-                "",
-            ],
-            answer:4
-        },
-        {
-            question:"",
-            options:[
-                "",
-                "",
-                "",
-                "",
-            ],
-            answer:4
-        },
-        {
-            question:"",
-            options:[
-                "",
-                "",
-                "",
-                "",
-            ],
-            answer:4
+            answer:2
         },
     ],
+
+    
+   mix:[
+        
+    {
+        question: "Why so JavaScript and Java have similar name?",
+        options:[
+            "JavaScript is a stripped-down version of Java",
+            "JavaScript's syntax is loosely based on Java's",
+            "They both originated on the island of Java",
+            "None of the above"
+        ],
+        answer:2
+    },
+{
+        question: "When a user views a page containing a JavaScript program, which machine actually executes the script?",
+        options:[
+            "The User's machine running a Web browser",
+            "The Web server",
+            "A central machine deep within Netscape's corporate offices",
+            "None of the above"
+        ],
+        answer:1
+    },
+{
+        question: "HTML stands for?",
+        options:[
+                "Hyper Text Markup Language",
+                "High Text Markup Language",
+                "Hyper Tabular Markup Language",
+                "None of these",
+        ],
+        answer:1
+    },
+{
+        question: "Correct HTML tag for the largest heading is",
+        options:[
+                "<head>",
+                "<heading>",
+                "<h1>",
+                "<h6>",
+        ],
+        answer:3
+    },
+{
+        question:"PHP Stands for?",
+        options:[
+            "PHP Hypertex Processor",
+            "PHP Hyper Markup Processor",
+            "PHP Hyper Markup Preprocessor",
+            "PHP Hypertext Preprocessor",
+        ],
+        answer:4
+    },
+{
+        question:"PHP is an example of ___________ scripting language.",
+        options:[
+            "Server-side",
+            "Client-side",
+            "Browser-side",
+            "In-side",
+        ],
+        answer:1
+    },
+{
+        question:"What ways to use WordPress?",
+        options:[
+            "Arcade",
+            "Blog",
+            "Content Management",
+            "All of the above",
+        ],
+        answer:4
+    },
+{
+        question:" What are rules to follow in WordPress plugin development?",
+        options:[
+            "Find a unique name",
+            "All of the above",
+            "Setup a prefix (related to your brand)",
+            "Create the plugin’s folder",
+            
+        ],
+        answer:2
+    },
+{
+        question:"What are the steps you can take if your WordPress file is hacked?",
+        options:[
+            "Install security plugins like WP security",
+            "Re-install the latest version of WordPress",
+            "Change password and user-ids for all your users",
+            "All of the above",
+        ],
+        answer:4
+    },
+{
+        question:"Which of the following function returns a text in title case from a variable?",
+        options:[
+            "ucwords($var)",
+            "upper($var)",
+            "toupper($var)",
+            "ucword($var)",
+        ],
+        answer:1
+    },
+
+    
+],
    
 }
 

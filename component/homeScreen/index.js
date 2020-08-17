@@ -31,15 +31,15 @@ const MainMenu = (props) => {
                 </View>
               </View> */}
               <View style={style.titleCard}>
-                <LottieView style={{height:150}} source={require('../../animation/main.json')} autoPlay loop />
+                <LottieView style={{height:150}} source={require('../../animation/quiz.json')} autoPlay loop />
 
                 <Text style={style.TitalText}>
-                  Jacpot
+                  Jackpot
                 </Text>
                 <Text style={style.TitalText}>
                   Qiuz
                 </Text>
-                <TouchableOpacity style={style.Btn}>
+                <TouchableOpacity onPress={()=>{props.onPlayButtonPress("wordpress")}} style={style.Btn}>
                   <Text style={style.PlayBtnText}>
                     Play Now
                   </Text>
@@ -70,7 +70,7 @@ const MainMenu = (props) => {
                     </View>
                     <LottieView style={{width:200, alignSelf:'center'}} source={require('../../animation/html.json')} autoPlay loop />
                     <View style={style.InnerBox2}>
-                      <TouchableOpacity style={style.InnerBoxBtn}>
+                      <TouchableOpacity onPress={()=>{props.onPlayButtonPress("html_css")}} style={style.InnerBoxBtn}>
                         <Text style={style.PlayBtnText}>
                           Play Now
                       </Text>
@@ -86,7 +86,7 @@ const MainMenu = (props) => {
                     </View>
                     <LottieView style={{width:100, alignSelf:'center'}} source={require('../../animation/php.json')} autoPlay loop />
                     <View style={style.InnerBox2}>
-                      <TouchableOpacity style={style.InnerBoxBtn}>
+                      <TouchableOpacity onPress={()=>{props.onPlayButtonPress("php")}} style={style.InnerBoxBtn}>
                         <Text style={style.PlayBtnText}>
                           Play Now
                         </Text>
@@ -100,7 +100,7 @@ const MainMenu = (props) => {
                     </View>
                     <LottieView style={{width:100, alignSelf:'center'}} source={require('../../animation/wordpress.json')} autoPlay loop />
                     <View style={style.InnerBox2}>
-                      <TouchableOpacity style={style.InnerBoxBtn}>
+                      <TouchableOpacity onPress={()=>{props.onPlayButtonPress("wordpress")}} style={style.InnerBoxBtn}>
                         <Text style={style.PlayBtnText}>
                           Play Now
                         </Text>
