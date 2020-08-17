@@ -11,80 +11,66 @@ import {
   Dimensions,
   ImageBackground
 } from 'react-native';
+import CountDown from 'react-native-countdown-component';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const Screen = (props) => {
-    const  BGimage = require('../../assets/background.jpg');
-    const [selected, setSelected] = useState(null)
+    const [timerID, setTimerID] = useState(1)
 
-    useEffect(()=>{
-        setSelected(null)
-    },[props.current])
-
-    useEffect(()=>{
-        props.selected(selected) 
-    },[selected])
-
-    // useEffect(()=>{
-    //     if(props.timer == 0){
-    //       setIsDisabled(true)
-    //       // setSelected(null)
-    //       // setSelected(props.current)
-    //     }
-    //     else{
-    //       setIsDisabled(false)
-    //       // setSelected(null)
-    //     }
-    // },[props.timer])
     return (
-        <ScrollView>
-            <ImageBackground 
-                resizeMode='cover' 
-                source={BGimage}
-                style={styles.body}>
-                <View style={styles.Card}>
-                    <View style={styles.CardHeader}>
-                        <View style={styles.headerBtn}>
-                            <Text>{props.current + 1}/{props.totalScreens}</Text>
-                        </View>
-                        <View style={[styles.headerBtn, {backgroundColor:'orange'}]}>
-                            <Text style={{color:'#fff'}}>{props.score}</Text>
-                        </View>
-                    </View>
-                    <View style={styles.NumberSection}>
-                        <View style={styles.Circle}>
-                            <Text style={{fontSize:20, color:'#fff'}}>{props.timer}</Text>
-                        </View>
-                        <Text style={styles.QueText}>
-                            {props.question}
-                        </Text>
-                    </View>
-                    <View style={styles.BtnSection}>
-                        {props.options.map((res, i)=>{
-                            let iselected = selected == i
-                            return(
-                                <TouchableOpacity
-                                    disabled={props.isDisabledOptions} 
-                                    onPress={()=>{setSelected(i)}}
-                                    key={i}
-                                    style={[styles.Btn, {backgroundColor: iselected ? "#7100E4" : "#fff", paddingHorizontal:5}]}>
-                                    <Text style={{color: iselected ? "#fff" : "#000", textAlign:'center'}}>{res}</Text>
-                                </TouchableOpacity>
-                            )
-                        })}
-                        <TouchableOpacity onPress={()=>{
-                            if(selected !== null){
-                                props.onSubmit()
-                            }
-                            else{
-                                if(!props.isDisabledOptions){
-                                  alert("Please select 1 option.")
-                                }
-                            }
-                        }} style={styles.SubmitBtn}>
-                            <Text style={{color:"#fff"}}>{props.timer == 0 ? "Next" : "Submit"}</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </ImageBackground>
+        <ScrollView style={{backgroundColor: "#07361E"}}>
+          <SafeAreaView>
+              <View style={styles.body}>
+                  <TouchableOpacity onPress={props.back} style={{width:'100%', paddingBottom:20}}>
+                    <Icon name="arrow-left" size={20} color="#64952D" />
+                  </TouchableOpacity>
+                  <View style={styles.Card}>
+                      <View style={styles.CardHeader}>
+                          <View style={styles.headerBtn}>
+                              <Text style={{color:'#fff'}}>{props.current + 1}/{props.totalScreens}</Text>
+                          </View>
+                          <View style={[styles.headerBtn, {backgroundColor:'#3D3D3D'}]}>
+                              <Text style={{color:'#fff'}}>{props.score}</Text>
+                          </View>
+                      </View>
+                      <View style={styles.NumberSection}>
+                          <View style={styles.Circle}>
+                              <CountDown
+                                id={timerID}
+                                until={10}
+                                size={20}
+                                onFinish={() => {
+                                    // setSelected(null)
+                                    props.onSubmit(null)
+                                    setTimerID(timerID + 1)
+                                }}
+                                digitTxtStyle={{color: '#fff'}}
+                                timeToShow={['S']}
+                                timeLabels={{m: null, s: null}}
+                              />
+                          </View>
+                          <Text style={styles.QueText}>
+                              {props.question}
+                          </Text>
+                      </View>
+                      <View style={styles.BtnSection}>
+                          {props.options.map((res, i)=>{
+                              return(
+                                  <TouchableOpacity
+                                      onPress={()=>{
+                                        props.onSubmit(i)
+                                        setTimerID(timerID + 1)
+                                      }}
+                                      key={i}
+                                      style={[styles.Btn, {backgroundColor: "#64952D", paddingHorizontal:5}]}>
+                                      <Text style={{color: "#fff", textAlign:'center'}}>{res}</Text>
+                                  </TouchableOpacity>
+                              )
+                          })}
+                      </View>
+                  </View>
+              </View>
+          </SafeAreaView>
         </ScrollView>
     );
 };
@@ -92,7 +78,7 @@ let deviceWidth = Dimensions.get('window').width
 let deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
   body: {
-    // backgroundColor: "#000",
+    backgroundColor: "#07361E",
     width:deviceWidth,
     height:deviceHeight,
     justifyContent:"center",
@@ -101,7 +87,7 @@ const styles = StyleSheet.create({
   },
   Card:{
     width:"100%",
-    backgroundColor:"#fff",
+    backgroundColor:"#0A522D",
     borderRadius:5,
     overflow:"hidden",
   },
@@ -118,17 +104,15 @@ const styles = StyleSheet.create({
   },
 
   Circle:{
-    height:60,
-    width:60,
-    borderRadius:60,
-    backgroundColor:'orange',
     justifyContent:'center',
     alignItems:'center',
+    marginBottom:10
   },
 
   QueText:{
     textAlign:"center",
     marginTop:5,
+    color:"#fff",
     paddingHorizontal:10
   },
 
@@ -165,7 +149,7 @@ const styles = StyleSheet.create({
     marginVertical:10,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'orange',
+    backgroundColor:'#3D3D3D',
   },
 
 });
