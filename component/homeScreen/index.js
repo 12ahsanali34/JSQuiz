@@ -1,4 +1,5 @@
 import React, {useState, useEffect, version} from 'react';
+import LottieView from 'lottie-react-native';
 
 import {
   SafeAreaView,
@@ -15,7 +16,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const MainMenu = () => {
+const MainMenu = (props) => {
 
   return(
     <ScrollView style={{backgroundColor: "#07361E"}}>
@@ -30,6 +31,8 @@ const MainMenu = () => {
                 </View>
               </View> */}
               <View style={style.titleCard}>
+                <LottieView style={{height:150}} source={require('../../animation/main.json')} autoPlay loop />
+
                 <Text style={style.TitalText}>
                   Jacpot
                 </Text>
@@ -49,21 +52,23 @@ const MainMenu = () => {
                 <View style={[style.Row, {marginBottom:15}]}>
                   <View style={style.Box}>
                     <View style={style.InnerBox}>
-                      <Text style={style.InnerTxt}>Sports</Text>
+                      <Text style={style.InnerTxt}>Javascript</Text>
                     </View>
+                    <LottieView style={{width:100, alignSelf:'center'}} source={require('../../animation/javascript.json')} autoPlay loop />
                     <View style={style.InnerBox2}>
-                      <TouchableOpacity style={style.InnerBoxBtn}>
-                      <Text style={style.PlayBtnText}>
-                          Play Now
-                      </Text>
-                        <Icon name="arrow-right" size={15} color="#fff" />
+                      <TouchableOpacity onPress={()=>{props.onPlayButtonPress("js")}} style={style.InnerBoxBtn}>
+                        <Text style={style.PlayBtnText}>
+                            Play Now
+                        </Text>
+                          <Icon name="arrow-right" size={15} color="#fff" />
                       </TouchableOpacity>
                     </View>
                   </View>
                   <View style={style.Box}>
                     <View style={style.InnerBox}>
-                      <Text style={style.InnerTxt}>Sports</Text>
+                      <Text style={style.InnerTxt}>Html</Text>
                     </View>
+                    <LottieView style={{width:200, alignSelf:'center'}} source={require('../../animation/html.json')} autoPlay loop />
                     <View style={style.InnerBox2}>
                       <TouchableOpacity style={style.InnerBoxBtn}>
                         <Text style={style.PlayBtnText}>
@@ -77,8 +82,9 @@ const MainMenu = () => {
                 <View style={[style.Row, {marginBottom:10}]}>
                   <View style={style.Box}>
                     <View style={style.InnerBox}>
-                      <Text style={style.InnerTxt}>Sports</Text>
+                      <Text style={style.InnerTxt}>Php</Text>
                     </View>
+                    <LottieView style={{width:100, alignSelf:'center'}} source={require('../../animation/php.json')} autoPlay loop />
                     <View style={style.InnerBox2}>
                       <TouchableOpacity style={style.InnerBoxBtn}>
                         <Text style={style.PlayBtnText}>
@@ -90,8 +96,9 @@ const MainMenu = () => {
                   </View>
                   <View style={style.Box}>
                     <View style={style.InnerBox}>
-                      <Text style={style.InnerTxt}>Sports</Text>
+                      <Text style={style.InnerTxt}>WordPress</Text>
                     </View>
+                    <LottieView style={{width:100, alignSelf:'center'}} source={require('../../animation/wordpress.json')} autoPlay loop />
                     <View style={style.InnerBox2}>
                       <TouchableOpacity style={style.InnerBoxBtn}>
                         <Text style={style.PlayBtnText}>
@@ -137,11 +144,12 @@ const style = StyleSheet.create({
     borderRadius:20
   },
   titleCard:{
-    height:200,
+    // height:200,
     backgroundColor:"#0A522D",
     borderRadius:10,
     justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",
+    padding:20
   },
 
   TitalText:{
@@ -204,14 +212,17 @@ const style = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    justifyContent:'space-between',
+    paddingHorizontal:5,
+    paddingVertical:10
   },
   InnerBox:{
-    justifyContent:"center",
-    height:"50%",
+    // height:"50%",
     width:"100%",
+    padding:5
   },
   InnerBox2:{
-    height:"50%",
+    // height:"50%",
     width:"100%",
     justifyContent:"flex-end",
     alignItems:"flex-end",

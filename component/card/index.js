@@ -36,11 +36,10 @@ const Screen = (props) => {
                       <View style={styles.NumberSection}>
                           <View style={styles.Circle}>
                               <CountDown
-                                id={timerID}
+                                id={timerID.toString()}
                                 until={10}
                                 size={20}
                                 onFinish={() => {
-                                    // setSelected(null)
                                     props.onSubmit(null)
                                     setTimerID(timerID + 1)
                                 }}

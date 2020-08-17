@@ -20,7 +20,7 @@ const App = () => {
   const [currentScreen, setCurrentScreen] = useState(0)
   const [score, setScore] = useState(0)
   const [showResult, setShowResult] = useState(false)
-  const [showHome, setShowHome] = useState(false)
+  const [showHome, setShowHome] = useState(true)
   const [quizName, setQuizName] = useState("js")
 
 
@@ -40,7 +40,7 @@ const App = () => {
           setCurrentScreen(0)
           setScore(0)
           setShowResult(false)
-        }} score={score} totalQuestions={ScreenArray.js.length}/>
+        }} score={score} totalQuestions={ScreenArray[quizName].length}/>
       )
     }
     else{

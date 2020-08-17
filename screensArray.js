@@ -317,7 +317,7 @@ export default {
         
     ],
 
-    Wordpress:[
+    wordpress:[
         {
             question:"",
             options:[
