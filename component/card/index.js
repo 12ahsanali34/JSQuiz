@@ -23,7 +23,7 @@ const Screen = (props) => {
         <ScrollView style={{backgroundColor: "#07361E"}}>
           <SafeAreaView>
               <View style={styles.body}>
-                  <LottieView style={{width:200, alignSelf:'center', height:120,marginTop:20}} source={require('../../animation/quiz.json')} autoPlay loop />
+                  <LottieView style={{width:150, alignSelf:'center', height:80,marginTop:20}} source={require('../../animation/quiz.json')} autoPlay loop />
                   <TouchableOpacity onPress={props.back} style={{width:'100%', paddingBottom:20}}>
                     <Icon name="arrow-left" size={20} color="#64952D" />
                   </TouchableOpacity>
