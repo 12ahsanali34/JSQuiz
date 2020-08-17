@@ -10,7 +10,7 @@ import {
   StatusBar,
   Button,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -18,90 +18,92 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const MainMenu = () => {
 
   return(
-    <ScrollView style={{backgroundColor:'#07361E'}}>
-        <View style={style.MainBox}>
-            {/* <View style={style.header}>
-              <Text style={style.HeaderText}>
-                Pakistan Quiz
-              </Text>
-              <View style={style.HeaderBox}>
-                <Text>Dummy</Text>
-              </View>
-            </View> */}
-            <View style={style.titleCard}>
-              <Text style={style.TitalText}>
-                Jacpot
-              </Text>
-              <Text style={style.TitalText}>
-                Qiuz
-              </Text>
-              <TouchableOpacity style={style.Btn}>
-                <Text style={style.PlayBtnText}>
-                  Play Now
+    <ScrollView style={{backgroundColor: "#07361E"}}>
+        <SafeAreaView>
+          <View style={style.MainBox}>
+              {/* <View style={style.header}>
+                <Text style={style.HeaderText}>
+                  Pakistan Quiz
                 </Text>
-                <Icon name="play" size={20} color="#fff" />
-              </TouchableOpacity>
-            </View>
-              <Text style={style.quizeheading}>
-                Pakistan Quiz
-              </Text>
-              <View style={[style.Row, {marginBottom:15}]}>
-                <View style={style.Box}>
-                  <View style={style.InnerBox}>
-                    <Text style={style.InnerTxt}>Sports</Text>
-                  </View>
-                  <View style={style.InnerBox2}>
-                    <TouchableOpacity style={style.InnerBoxBtn}>
-                     <Text style={style.PlayBtnText}>
-                        Play Now
-                     </Text>
-                      <Icon name="arrow-right" size={15} color="#fff" />
-                    </TouchableOpacity>
-                  </View>
+                <View style={style.HeaderBox}>
+                  <Text>Dummy</Text>
                 </View>
-                <View style={style.Box}>
-                  <View style={style.InnerBox}>
-                    <Text style={style.InnerTxt}>Sports</Text>
-                  </View>
-                  <View style={style.InnerBox2}>
-                    <TouchableOpacity style={style.InnerBoxBtn}>
-                      <Text style={style.PlayBtnText}>
-                         Play Now
-                     </Text>
-                     <Icon name="arrow-right" size={15} color="#fff" />
-                    </TouchableOpacity>
-                  </View>
-                </View>
+              </View> */}
+              <View style={style.titleCard}>
+                <Text style={style.TitalText}>
+                  Jacpot
+                </Text>
+                <Text style={style.TitalText}>
+                  Qiuz
+                </Text>
+                <TouchableOpacity style={style.Btn}>
+                  <Text style={style.PlayBtnText}>
+                    Play Now
+                  </Text>
+                  <Icon name="play" size={20} color="#fff" />
+                </TouchableOpacity>
               </View>
-              <View style={[style.Row, {marginBottom:10}]}>
-                <View style={style.Box}>
-                  <View style={style.InnerBox}>
-                    <Text style={style.InnerTxt}>Sports</Text>
-                  </View>
-                  <View style={style.InnerBox2}>
-                    <TouchableOpacity style={style.InnerBoxBtn}>
+                <Text style={style.quizeheading}>
+                  Pakistan Quiz
+                </Text>
+                <View style={[style.Row, {marginBottom:15}]}>
+                  <View style={style.Box}>
+                    <View style={style.InnerBox}>
+                      <Text style={style.InnerTxt}>Sports</Text>
+                    </View>
+                    <View style={style.InnerBox2}>
+                      <TouchableOpacity style={style.InnerBoxBtn}>
                       <Text style={style.PlayBtnText}>
-                         Play Now
+                          Play Now
+                      </Text>
+                        <Icon name="arrow-right" size={15} color="#fff" />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                  <View style={style.Box}>
+                    <View style={style.InnerBox}>
+                      <Text style={style.InnerTxt}>Sports</Text>
+                    </View>
+                    <View style={style.InnerBox2}>
+                      <TouchableOpacity style={style.InnerBoxBtn}>
+                        <Text style={style.PlayBtnText}>
+                          Play Now
                       </Text>
                       <Icon name="arrow-right" size={15} color="#fff" />
-                    </TouchableOpacity>
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
-                <View style={style.Box}>
-                  <View style={style.InnerBox}>
-                    <Text style={style.InnerTxt}>Sports</Text>
+                <View style={[style.Row, {marginBottom:10}]}>
+                  <View style={style.Box}>
+                    <View style={style.InnerBox}>
+                      <Text style={style.InnerTxt}>Sports</Text>
+                    </View>
+                    <View style={style.InnerBox2}>
+                      <TouchableOpacity style={style.InnerBoxBtn}>
+                        <Text style={style.PlayBtnText}>
+                          Play Now
+                        </Text>
+                        <Icon name="arrow-right" size={15} color="#fff" />
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                  <View style={style.InnerBox2}>
-                    <TouchableOpacity style={style.InnerBoxBtn}>
-                      <Text style={style.PlayBtnText}>
-                        Play Now
-                      </Text>
-                      <Icon name="arrow-right" size={15} color="#fff" />
-                    </TouchableOpacity>
+                  <View style={style.Box}>
+                    <View style={style.InnerBox}>
+                      <Text style={style.InnerTxt}>Sports</Text>
+                    </View>
+                    <View style={style.InnerBox2}>
+                      <TouchableOpacity style={style.InnerBoxBtn}>
+                        <Text style={style.PlayBtnText}>
+                          Play Now
+                        </Text>
+                        <Icon name="arrow-right" size={15} color="#fff" />
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
-              </View>
-        </View>
+          </View>
+        </SafeAreaView>
     </ScrollView>
   )
 
@@ -114,7 +116,8 @@ const style = StyleSheet.create({
   MainBox:{
     width:deviceWidth,
     paddingHorizontal:10,
-    marginVertical:10
+    marginVertical:10,
+    paddingHorizontal:10,
   },
   header:{
     height:deviceHeight / 9,
@@ -145,7 +148,7 @@ const style = StyleSheet.create({
     margin:3,
     fontSize:25,
     color:"#fff",
-    fontFamily:"serif"
+    // fontFamily:"serif"
   },
 
   Btn:{
@@ -162,7 +165,7 @@ const style = StyleSheet.create({
   PlayBtnText:{
     fontSize:16,
     color:"#fff",
-    fontFamily:"serif",
+    // fontFamily:"serif",
     marginRight:10
 
   },
@@ -172,14 +175,14 @@ const style = StyleSheet.create({
     color:"#fff",
     fontWeight:'500',
     fontSize:20,
-    fontFamily:"serif",
+    // fontFamily:"serif",
   },
   quizeheading:{
     color:'white',
     fontSize:20,
     paddingVertical:10,
     fontWeight:'200',
-    fontFamily:"serif",
+    // fontFamily:"serif",
   },
 
   Row:{
@@ -188,8 +191,8 @@ const style = StyleSheet.create({
     justifyContent:"space-between",
   },
   Box:{
-    height:140,
-    width:160,
+    height:deviceWidth * 0.7,
+    width:deviceWidth * 0.45  ,
     backgroundColor:"#0A522D",
     overflow:"hidden",
     borderRadius:5,
@@ -228,7 +231,7 @@ const style = StyleSheet.create({
     fontSize:20,
     color:"#fff",
     marginLeft:5,
-    fontFamily:"serif",
+    // fontFamily:"serif",
   }
 
 

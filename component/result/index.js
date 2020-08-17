@@ -13,18 +13,19 @@ import {
 } from 'react-native';
 const Screen = (props) => {
     return (
-        <ScrollView>
-            <View 
-                style={styles.body}>
-                <View style={styles.Card}>
-                    <Text style={styles.Heading1}> Congratulation</Text>
-                    <Text style={styles.MyResult}>You Won <Text style={{color:"orange", fontWeight:'bold'}}>{props.score}</Text></Text>
-                    <Text style={styles.ViewResult}>You Answered {props.totalQuestions} Questions</Text>
-                    <TouchableOpacity onPress={props.reset} style={styles.playAgainBTN}>
-                        <Text style={{color:"#fff"}}>Play Again</Text>
-                    </TouchableOpacity>
+        <ScrollView style={{backgroundColor: "#07361E"}}>
+            <SafeAreaView>
+                <View style={styles.body}>
+                  <View style={styles.Card}>
+                      <Text style={styles.Heading1}> Congratulation</Text>
+                      <Text style={styles.MyResult}>You Won <Text style={{color:"orange", fontWeight:'bold'}}>{props.score}</Text></Text>
+                      <Text style={styles.ViewResult}>You Answered {props.totalQuestions} Questions</Text>
+                      <TouchableOpacity onPress={props.reset} style={styles.playAgainBTN}>
+                          <Text style={{color:"#fff"}}>Play Again</Text>
+                      </TouchableOpacity>
+                  </View>
                 </View>
-            </View>
+            </SafeAreaView>
         </ScrollView>
     );
 };
@@ -32,7 +33,6 @@ let deviceWidth = Dimensions.get('window').width
 let deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: "#07361E",
     width:deviceWidth,
     height:deviceHeight,
     justifyContent:"center",
