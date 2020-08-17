@@ -101,17 +101,5 @@ export default {
             answer:1
         },
         
-    ],
-    html_css:[
-        {
-            question: "Why so JavaScript and Java have similar name?",
-            options:[
-                "JavaScript is a stripped-down version of Java",
-                "JavaScript's syntax is loosely based on Java's",
-                "They both originated on the island of Java",
-                "None of the above"
-            ],
-            answer:2
-        },
     ]
 }

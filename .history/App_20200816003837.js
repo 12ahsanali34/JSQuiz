@@ -63,7 +63,7 @@ const App = () => {
         setScore(0)
         setShowResult(false)
         timer(10)
-      }} score={score} totalQuestions={ScreenArray.js.length}/>
+      }} score={score} totalQuestions={ScreenArray.length}/>
     )
   }
   else{
@@ -71,13 +71,13 @@ const App = () => {
       <CardScreen
         isDisabledOptions={isDisabled}
         selected={(e)=>setSelected(e)}
-        options={ScreenArray.js[currentScreen].options}
-        question={ScreenArray.js[currentScreen].question}
+        options={ScreenArray[currentScreen].options}
+        question={ScreenArray[currentScreen].question}
         onSubmit={()=>{
-          if((selected+1) == ScreenArray.js[currentScreen].answer){
+          if((selected+1) == ScreenArray[currentScreen].answer){
             setScore(score + 10)
           }
-          if((currentScreen + 1) !== ScreenArray.js.length){
+          if((currentScreen + 1) !== ScreenArray.length){
             setCurrentScreen(currentScreen + 1)
           }else{
             setShowResult(true)
@@ -85,7 +85,7 @@ const App = () => {
         }}
         score={score}
         current={currentScreen}
-        totalScreens={ScreenArray.js.length}
+        totalScreens={ScreenArray.length}
         timer={time}/>
     )
   }
